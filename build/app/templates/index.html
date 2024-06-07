@@ -1,0 +1,52 @@
+{% set active_page = 'index' %} {% extends '_wrapper.html' %} {% import 'bootstrap/wtf.html' as wtf %} {% block content %}
+  <h1 class="main_title">Adding a cross to an image</h1>
+  {{ wtf.quick_form(form, method = 'post', enctype = 'multipart/form-data', action = '/#' ) }}
+  <div class="container-xl mt-5">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3>Original image</h3>
+        {% if image_name %}
+        <a href="{{ image_name }}">
+          <img style="height: 100%; width: 100%" src="{{ image_name }}" class="img-rounded" alt="Source" />
+        </a>
+        {% else %}
+        <p>No image added</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <h3>Processed image</h3>
+        {% if image_name_proc %}
+        <a href="{{ image_name_proc }}">
+          <img style="height: 100%; width: 100%" src="{{ image_name_proc }}" class="img-rounded" alt="Proc" />
+        </a>
+        {% else %}
+        <p>The image could not be processed</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+    <div class="container-xl mt-5">
+        <div class="row align-items-center">
+            <div class="row mb-5">
+                {% if save_color_image %}
+                    <div class="container">
+                    <h3>Color distribution of the original image</h3>
+                    <a href="{{ save_color_image }}">
+                        <img style="height: 100%; width: 100%" src="{{ save_color_image }}" class="img-rounded" alt="Proc" />
+                    </a>
+                {% else %} {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                {% if save_color_new_image %}
+                    <div class="container mt-5">
+                        <h3>Color distribution of the processed image</h3>
+                        <a href="{{ save_color_new_image }}">
+                            <img style="height: 100%; width: 100%" src="{{ save_color_new_image }}" class="img-rounded" alt="Proc" />
+                        </a>
+                {% else %} {% endif %}
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
