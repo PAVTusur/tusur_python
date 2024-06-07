@@ -1,0 +1,17 @@
+{% extends '_wrapper.html' %} {% set active_page = "info" %} {% block content %}
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/about.css') }}" />
+</head>
+
+<body>
+  <h1 class="mt-5">Service description</h1>
+  <p class="lead">Web service for adding a cross to an image</p>
+  <p>
+      You can add a vertical or horizontal color of any specified color in RGB space to an image
+  </p>
+</body>
+
+</html>
+{% endblock %}
